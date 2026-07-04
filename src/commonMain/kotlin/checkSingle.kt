@@ -2,6 +2,7 @@ package org.thundernetwork.permissioner
 
 import org.thundernetwork.permissioner.options.CheckSingleOptions
 import org.thundernetwork.permissioner.replacements.ReplacementLocation
+import kotlin.js.JsExport
 import kotlin.math.max
 
 /**
@@ -46,6 +47,7 @@ import kotlin.math.max
  *   replaces: [{ key: '{userId}', value: '123', where: WhereToReplace.Both }]
  * }); // true
  */
+@JsExport
 fun checkSingle(permission: Permission, requiredPermission: Permission, options: CheckSingleOptions? = null): Boolean {
     val replacements = options?.replacements
     replacements?.forEach { replacement ->

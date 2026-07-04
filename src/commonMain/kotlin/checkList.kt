@@ -1,6 +1,7 @@
 package org.thundernetwork.permissioner
 
 import org.thundernetwork.permissioner.options.CheckListOptions
+import kotlin.js.JsExport
 
 /**
  * Checks if a list of granted permissions satisfies all required permissions.
@@ -49,6 +50,7 @@ import org.thundernetwork.permissioner.options.CheckListOptions
  * Negative permission does not affect unrelated matches
  * checkList(['user.*', 'not.user.delete'], ['user.read']); // true
  */
+@JsExport
 fun checkList(permissions: PermissionList, requiredPermissions: PermissionList, options: CheckListOptions? = null): Boolean {
     if (requiredPermissions.isEmpty()) return true
     else if (permissions.isEmpty()) return false

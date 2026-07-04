@@ -1,10 +1,12 @@
 package org.thundernetwork.permissioner.options
 
 import org.thundernetwork.permissioner.replacements.Replacement
+import kotlin.js.JsExport
 
 /**
  * Options for customizing the behavior of checkSingle function.
  */
+@JsExport
 interface CheckSingleOptions {
     /**
      * Array of replacement rules to apply to permission strings before comparison.

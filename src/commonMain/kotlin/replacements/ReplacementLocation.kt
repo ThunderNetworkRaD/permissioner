@@ -1,9 +1,12 @@
 package org.thundernetwork.permissioner.replacements
 
+import kotlin.js.JsExport
+
 /**
  * Enum that specifies where to apply a replacement in permission strings.
  * Used in Replace interface to determine which permission string(s) to modify.
  */
+@JsExport
 enum class ReplacementLocation {
     /** Apply replacement only to the required permission string */
     REQUIRED,

@@ -1,6 +1,7 @@
 package org.thundernetwork.permissioner
 
 import org.thundernetwork.permissioner.options.EvaluateOptions
+import kotlin.js.JsExport
 
 /**
  * Recursively evaluates a permission [Calculation] against a list of granted permissions.
@@ -31,6 +32,7 @@ import org.thundernetwork.permissioner.options.EvaluateOptions
  * NOT
  * evaluate(permissions, Not(PermissionCheck(listOf("user.delete"))))
  */
+@JsExport
 fun evaluate(permissions: PermissionList, calculation: Calculation, options: EvaluateOptions? = null): Boolean {
     return when (calculation) {
         is And -> calculation.and.all { evaluate(permissions, it) }

@@ -61,7 +61,7 @@ fun checkSingle(permission: Permission, requiredPermission: Permission, options:
     }
 
     val actual = permission.split('.') as PermissionList
-    val required = permission.split('.') as PermissionList
+    val required = requiredPermission.split('.') as PermissionList
 
     val max = max(actual.size, required.size)
     actual.fill(max)

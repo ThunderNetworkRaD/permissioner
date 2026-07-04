@@ -1,5 +1,7 @@
 package org.thundernetwork.permissioner
 
+import org.thundernetwork.permissioner.options.CheckSingleOptions
+import org.thundernetwork.permissioner.replacements.ReplacementLocation
 import kotlin.math.max
 
 /**

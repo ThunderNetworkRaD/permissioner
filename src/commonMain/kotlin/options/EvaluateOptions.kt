@@ -1,4 +1,3 @@
 package org.thundernetwork.permissioner.options
 
-interface EvaluateOptions: CheckListOptions {
-}
+interface EvaluateOptions: CheckListOptions

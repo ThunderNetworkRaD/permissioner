@@ -1,0 +1,48 @@
+name: Publish
+
+# Trigger: pubblica ogni volta che crei una release su GitHub (consigliato),
+# oppure ogni volta che pushi un tag che inizia con "v" (es. v1.0.0).
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write   # necessario per pubblicare su GitHub Packages
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Publish package
+        run: ./gradlew publish
+        env:
+          # Credenziali per GitHub Packages (già disponibili automaticamente nella Action)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # Se pubblichi anche su Maven Central, aggiungi questi secrets
+          # nelle impostazioni del repository (Settings > Secrets and variables > Actions)
+          # e scommenta le righe seguenti in base al plugin che usi (es. vanniktech/maven-publish):
+          # ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          # ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          # ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
+          # ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}

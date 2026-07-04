@@ -1,7 +1,7 @@
 package org.thundernetwork.permissioner
 
 /**
- * Permission Checker's permission list.
- * (MutableList<String>)
+ * Represents a list of permission strings.
+ * Each string is a dot-separated permission path (e.g., ["user.read", "admin.write"]).
  */
 typealias PermissionList = MutableList<Permission>

@@ -1,0 +1,4 @@
+package org.thundernetwork.permissioner.options
+
+interface CheckListOptions: CheckSingleOptions {
+}

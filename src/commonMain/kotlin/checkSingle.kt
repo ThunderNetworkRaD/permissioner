@@ -67,7 +67,7 @@ fun checkSingle(permission: Permission, requiredPermission: Permission, options:
     actual.fill(max)
     required.fill(max)
 
-    for (i in 0..max) {
+    for (i in 0 until max) {
         val nowActual = actual[i]
         val nowRequired = required[i]
 

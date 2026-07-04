@@ -1,4 +1,6 @@
-package org.thundernetwork.permissioner
+package org.thundernetwork.permissioner.options
+
+import org.thundernetwork.permissioner.replacements.Replacement
 
 /**
  * Options for customizing the behavior of checkSingle function.

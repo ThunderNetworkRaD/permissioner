@@ -1,4 +1,4 @@
-package org.thundernetwork.permissioner
+package org.thundernetwork.permissioner.replacements
 
 /**
  * Defines a replacement rule for permission strings.

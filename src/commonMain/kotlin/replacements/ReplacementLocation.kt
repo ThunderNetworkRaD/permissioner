@@ -1,4 +1,4 @@
-package org.thundernetwork.permissioner
+package org.thundernetwork.permissioner.replacements
 
 /**
  * Enum that specifies where to apply a replacement in permission strings.
